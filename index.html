@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>la 1ere Reunion</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url(''); /* Remplacez par l'URL de votre image */
+            background-size: cover; /* Couvre tout l'écran */
+            background-position: center; /* Centre l'image */
+            color: #ffffff;
+            font-family: 'Courier New', Courier, monospace;
+            overflow: hidden;
+        }
+
+        .radio-player {
+            background: rgba(20, 20, 20, 0.0); /* Rendre le fond plus translucide */
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 30px rgba(255, 255, 0, 0.5); /* Ombre de texte en jaune */
+            backdrop-filter: blur(20px);
+            text-align: center;
+            width: 350px;
+            border: 2px solid #ffff00; /* Bordure jaune vif */
+        }
+
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+            color: #ffff00; /* Titre en jaune vif */
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #ffff00; /* Ombre de texte en jaune vif */
+        }
+
+        audio {
+            display: none; /* Cacher le lecteur audio standard */
+        }
+
+        .controls {
+            margin-top: 10px;
+        }
+
+        button {
+            background: rgba(255, 255, 0, 0.2); /* Fond des boutons en jaune clair */
+            border: 2px solid #ffff00; /* Bord des boutons en jaune vif */
+            border-radius: 5px;
+            color: #ffff00; /* Texte des boutons en jaune vif */
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background: rgba(255, 255, 0, 0.5); /* Fond au survol en jaune vif */
+            transform: scale(1.05);
+        }
+
+        .cover {
+            margin: 15px 0;
+        }
+
+        .cover img {
+            max-width: 100%;
+            border-radius: 10px;
+            border: 2px solid #ffff00; /* Bordure de l'image en jaune vif */
+        }
+    </style>
+</head>
+<body>
+    <div class="radio-player">
+        <h1>Radio Pikan 89 FM</h1>
+        <div class="cover">
+            <img id="logoImage" src="https://github.com/gunout/Radio-Pikan/blob/main/radiopikan.png?raw=true" alt="Logo de la radio">
+        </div>
+        <audio id="audio" preload="auto">
+            <source src="https://reunion.ice.infomaniak.ch/reunion-128.mp3" type="audio/mpeg">
+            Votre navigateur ne supporte pas l'élément audio.
+        </audio>
+        <div class="controls">
+            <button id="play" class="play">▶</button>
+            <button id="pause" class="pause">⏸</button>
+            <button id="stop" class="stop">■</button>
+        </div>
+    </div>
+
+    <script>
+        const audio = document.getElementById('audio');
+        const playButton = document.getElementById('play');
+        const pauseButton = document.getElementById('pause');
+        const stopButton = document.getElementById('stop');
+
+        playButton.addEventListener('click', () => {
+            audio.play();
+        });
+
+        pauseButton.addEventListener('click', () => {
+            audio.pause();
+        });
+
+        stopButton.addEventListener('click', () => {
+            audio.pause();
+            audio.currentTime = 0; // Réinitialiser la lecture
+        });
+    </script>
+</body>
+</html>
